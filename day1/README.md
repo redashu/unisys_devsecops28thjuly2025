@@ -15,3 +15,11 @@
 ### making security changes in existing devops pipeline to get below things 
 
 <img src="devops4.png">
+
+## devsecops  major things to be understood 
+
+<img src="devops5.png">
+
+### DAST understanding 
+
+<img src="devops6.png">
