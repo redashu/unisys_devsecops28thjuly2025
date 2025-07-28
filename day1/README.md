@@ -49,3 +49,14 @@ PS C:\Users\Administrator>
 
 
 ```
+
+### verify default port number 
+
+```
+PS C:\Users\Administrator> NETSTAT.EXE  -ano    | findstr.exe  :80
+  TCP    0.0.0.0:80             0.0.0.0:0              LISTENING       4
+  TCP    0.0.0.0:8080           0.0.0.0:0              LISTENING       4
+  TCP    172.31.44.127:62496    142.250.183.78:80      TIME_WAIT       0
+  TCP    [::]:80                [::]:0                 LISTENING       4
+  TCP    [::]:8080              [::]:0                 LISTENING       4
+```
