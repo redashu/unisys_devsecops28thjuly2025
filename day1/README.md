@@ -60,3 +60,8 @@ PS C:\Users\Administrator> NETSTAT.EXE  -ano    | findstr.exe  :80
   TCP    [::]:80                [::]:0                 LISTENING       4
   TCP    [::]:8080              [::]:0                 LISTENING       4
 ```
+
+### some info about IIS webapp server with virtualhosting options 
+
+<img src="app1.png">
+
