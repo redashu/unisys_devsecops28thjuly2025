@@ -23,3 +23,8 @@
 ### DAST understanding 
 
 <img src="devops6.png">
+
+## pipeline with devsecops options 
+
+<img src="devops7.png">
+
