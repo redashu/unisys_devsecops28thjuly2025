@@ -28,3 +28,10 @@
 
 <img src="devops7.png">
 
+## Introduction to app server to deploy any webapp 
+
+<img src="sec11.png">
+
+## some info about microsoft IIS server 
+
+<img src="sec12.png">
