@@ -136,4 +136,46 @@ PS C:\Users\Administrator>
 
 <img src="img1.png">
 
+### Docker host architecture 
 
+
+<img src="cont1.png">
+
+## Docker basic operations 
+
+### pulling images 
+
+```
+PS C:\Users\Administrator> docker  pull hello-world
+Using default tag: latest
+latest: Pulling from library/hello-world
+Digest: sha256:ec153840d1e635ac434fab5e377081f17e0e15afab27beb3f726c3265039cfff
+Status: Image is up to date for hello-world:latest
+docker.io/library/hello-world:latest
+PS C:\Users\Administrator>
+
+```
+
+### pulling base image of windows nano server
+
+```
+ docker pull mcr.microsoft.com/windows/nanoserver:ltsc2022
+ltsc2022: Pulling from windows/nanoserver
+Digest: sha256:9a57174ce85e979529e4f0cd58dff2e837b65fc7832b7585b4882f6cce0e255d
+Status: Image is up to date for mcr.microsoft.com/windows/nanoserver:ltsc2022
+mcr.microsoft.com/windows/nanoserver:ltsc2022
+PS C:\Users\Administrator>
+PS C:\Users\Administrator>
+
+```
+
+### image to pull 
+
+```
+ docker pull mcr.microsoft.com/windows/servercore:ltsc2022
+ltsc2022: Pulling from windows/servercore
+Digest: sha256:3281482945016cdaefbe417edd8338de8119e077b6941f74e78b050da1b7bd97
+Status: Image is up to date for mcr.microsoft.com/windows/servercore:ltsc2022
+mcr.microsoft.com/windows/servercore:ltsc2022
+
+```
