@@ -35,3 +35,17 @@
 ## some info about microsoft IIS server 
 
 <img src="sec12.png">
+
+## enable and checking IIS status 
+
+```
+PS C:\Users\Administrator> Get-WindowsFeature  -Name  web-server                                                        
+Display Name                                            Name                       Install State
+------------                                            ----                       -------------
+[X] Web Server (IIS)                                    Web-Server                     Installed
+
+
+PS C:\Users\Administrator>
+
+
+```
