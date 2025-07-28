@@ -7,3 +7,11 @@
 ## Devops to Devsecops 
 
 <img src="devops2.png">
+
+### Devsecops intro basic 
+
+<img src="devops3.png">
+
+### making security changes in existing devops pipeline to get below things 
+
+<img src="devops4.png">
