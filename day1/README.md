@@ -87,3 +87,21 @@ Enable-WindowsOptionalFeature -Online -FeatureName Containers -All
 Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
 Install-Package -Name docker -ProviderName DockerMsftProvider
 ```
+
+# option2 -- manual download & install 
+
+```
+# 1. Enable required feature
+Install-WindowsFeature Containers
+
+# 2. Download and run the Docker CE (Moby) install script
+Invoke-WebRequest -UseBasicParsing `
+  "https://raw.githubusercontent.com/microsoft/Windows-Containers/Main/helpful_tools/Install-DockerCE/install-docker-ce.ps1" `
+  -OutFile install-docker-ce.ps1
+
+.\install-docker-ce.ps1
+
+# 3. Restart the server if prompted
+Restart-Computer
+
+```
