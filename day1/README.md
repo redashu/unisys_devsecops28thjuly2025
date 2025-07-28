@@ -105,3 +105,35 @@ Invoke-WebRequest -UseBasicParsing `
 Restart-Computer
 
 ```
+
+## verify installation 
+```
+
+PS C:\Users\Administrator> docker  version
+Client:
+ Version:           28.3.2
+ API version:       1.51
+ Go version:        go1.24.5
+ Git commit:        578ccf6
+ Built:             Wed Jul  9 16:12:31 2025
+ OS/Arch:           windows/amd64
+ Context:           default
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          28.3.2
+  API version:      1.51 (minimum version 1.24)
+  Go version:       go1.24.5
+  Git commit:       e77ff99
+  Built:            Wed Jul  9 15:41:13 2025
+  OS/Arch:          windows/amd64
+  Experimental:     false
+PS C:\Users\Administrator>
+
+```
+
+## Images and containers 
+
+<img src="img1.png">
+
+
