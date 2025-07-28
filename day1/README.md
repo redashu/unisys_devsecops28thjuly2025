@@ -65,3 +65,14 @@ PS C:\Users\Administrator> NETSTAT.EXE  -ano    | findstr.exe  :80
 
 <img src="app1.png">
 
+## downside fo VM 
+
+<img src="vm2.png">
+
+## container with multiple kernel support callled hypervisor Mode 
+
+<img src="hyper.png">
+
+## Docker can be installed on window 2016 minimum server 
+
+<img src="docker1.png">
