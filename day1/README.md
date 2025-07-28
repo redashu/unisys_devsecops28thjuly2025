@@ -76,3 +76,14 @@ PS C:\Users\Administrator> NETSTAT.EXE  -ano    | findstr.exe  :80
 ## Docker can be installed on window 2016 minimum server 
 
 <img src="docker1.png">
+
+## option1 using default windows registry option to install docker server 
+
+```
+# Enable Windows containers feature
+Enable-WindowsOptionalFeature -Online -FeatureName Containers -All
+
+# Install Docker provider and package
+Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
+Install-Package -Name docker -ProviderName DockerMsftProvider
+```
