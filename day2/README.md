@@ -77,3 +77,55 @@ PS C:\Users\Administrator>
 <img src="c3.png">
 
 
+### more container commands 
+
+```
+ 10 docker ps
+  11  docker run -it  --name ashuc2  mcr.microsoft.com/windows/servercore:ltsc2022 powershell
+  12 hostname
+  13 docker ps
+  14 docker ps -a
+
+
+PS C:\Users\Administrator>
+PS C:\Users\Administrator> docker ps -a
+CONTAINER ID   IMAGE                                           COMMAND                   CREATED          STATUS                          PORTS     NAMES
+1683168f39bc   mcr.microsoft.com/windows/servercore:ltsc2022   "powershell"              2 minutes ago    Exited (0) About a minute ago             ashuc2
+6d348799fad8   mcr.microsoft.com/windows/servercore:ltsc2022   "powershell"              18 minutes ago   Up 18 minutes                             ashuc1
+445bcd16c1d9   hello-world                                     "cmd /C 'type C:\\hel…"   26 minutes ago   Exited (0) 26 minutes ago                 flamboyant_proskuriakova
+PS C:\Users\Administrator>
+PS C:\Users\Administrator>
+
+```
+
+### few more things to know about docker cli 
+
+```
+ 16 docker ps -a
+  17 docker  ps -a
+  18 docker  stop  ashuc1  ashuc2
+  19 docker  ps -a
+  20 docker  start  ashuc1  ashuc2
+  21 docker  ps -a
+  22 docker  stats
+
+
+PS C:\Users\Administrator>
+PS C:\Users\Administrator> docker  stop   ashuc1  ashuc2
+ashuc1
+ashuc2
+PS C:\Users\Administrator> docker  ps -a
+CONTAINER ID   IMAGE                                           COMMAND                   CREATED          STATUS                      PORTS     NAMES
+1683168f39bc   mcr.microsoft.com/windows/servercore:ltsc2022   "powershell"              7 minutes ago    Exited (1) 4 seconds ago              ashuc2
+6d348799fad8   mcr.microsoft.com/windows/servercore:ltsc2022   "powershell"              24 minutes ago   Exited (1) 4 seconds ago              ashuc1
+445bcd16c1d9   hello-world                                     "cmd /C 'type C:\\hel…"   31 minutes ago   Exited (0) 31 minutes ago             flamboyant_proskuriakova
+PS C:\Users\Administrator>
+PS C:\Users\Administrator>
+PS C:\Users\Administrator> docker  rm  ashuc1 ashuc2  445bcd16c1d9
+ashuc1
+ashuc2
+445bcd16c1d9
+PS C:\Users\Administrator> docker  ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+```
