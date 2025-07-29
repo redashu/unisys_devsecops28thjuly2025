@@ -286,3 +286,11 @@ git clone https://github.com/redashu/ashu-iis-container-app.git
    6 git commit -m  "updates codes"
    7 git push
 ```
+
+### SOnarqube with jenkins integration 
+
+<img src="sonar1.png">
+
+### bit more info about sonarqube + scanner 
+
+<img src="sonar2.png">
