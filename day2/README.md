@@ -129,3 +129,15 @@ PS C:\Users\Administrator> docker  ps -a
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 
 ```
+
+## Introduction SAST -- (developer approach)
+
+### we can find vulns in code / contaienr images
+
+<img src="sec1.png">
+
+
+### Code scan using given tools 
+
+<img src="sec2.png">
+
