@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        // first stage to print hello world message 
+        stage('Hello') {
+            steps {
+                echo 'Hello World from ashutoshh'
+                // echo is predefind keyword in jenkins 
+            }
+        }
+        // cloning github repo here 
+        stage('github repo checkout'){
+            steps {
+                echo 'wait for github to be cloned...'
+                git url: 'https://github.com/redashu/ashu-iis-container-app.git',
+                    branch: 'master'
+            }
+        }
+    }
+}
