@@ -141,3 +141,12 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 
 <img src="sec2.png">
 
+### scanning for code about
+
+```
+ 1 cd .\Desktop\
+   2 trivy  fs  .\ashutoshh-apps\
+   3 git  clone  https://github.com/redashu/sample-dotnetweb-app.git
+   4 ls
+   5 trivy  fs  .\sample-dotnetweb-app\
+```
