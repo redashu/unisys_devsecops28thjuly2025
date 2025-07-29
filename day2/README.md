@@ -274,3 +274,15 @@ Legend:
 - '-': Not scanned
 
 ```
+
+### Creating repo and pushing code to it
+
+```
+git clone https://github.com/redashu/ashu-iis-container-app.git
+ 2 git add .
+   3 git commit -m  "updates codes"
+   4 git config --global user.email ashutoshh@linux.com
+   5 git config --global user.name redashu
+   6 git commit -m  "updates codes"
+   7 git push
+```
