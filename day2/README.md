@@ -250,3 +250,27 @@ PS C:\Users\Administrator\Desktop>
 PS C:\Users\Administrator\Desktop> trivy repository   --scanners secret,misconfig,vuln --severity HIGH,CRITICAL  https://github.com/dotnet-architecture/eShopOnWeb.git  --format json   --output  ashu_app_report.json
 
 ```
+
+### trivy image 
+
+```
+trivy  image hello-world
+2025-07-29T07:00:36Z    INFO    [vuln] Vulnerability scanning is enabled
+2025-07-29T07:00:36Z    INFO    [secret] Secret scanning is enabled
+2025-07-29T07:00:36Z    INFO    [secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+2025-07-29T07:00:36Z    INFO    [secret] Please see also https://trivy.dev/v0.64/docs/scanner/secret#recommendation for faster secret detection
+2025-07-29T07:00:44Z    INFO    Number of language-specific files       num=0
+2025-07-29T07:00:51Z    WARN    [report] Supported files for scanner(s) not found.      scanners=[vuln]
+2025-07-29T07:00:51Z    INFO    [report] No issues detected with scanner(s).    scanners=[secret]
+
+Report Summary
+
+┌────────┬──────┬─────────────────┬─────────┐
+│ Target │ Type │ Vulnerabilities │ Secrets │
+├────────┼──────┼─────────────────┼─────────┤
+│   -    │  -   │        -        │    -    │
+└────────┴──────┴─────────────────┴─────────┘
+Legend:
+- '-': Not scanned
+
+```
