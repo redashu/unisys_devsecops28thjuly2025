@@ -220,3 +220,18 @@ Total: 4 (UNKNOWN: 0, LOW: 0, MEDIUM: 2, HIGH: 2, CRITICAL: 0)
 PS C:\Users\Administrator\Desktop>
 
 ```
+
+### more options to check security related things using trivy 
+
+```
+ 8 trivy repository  https://github.com/redashu/sample-dotnetweb-app.git
+   9 trivy repository  https://github.com/microsoft/stateful-java-web-app.git
+  10 trivy repository  https://github.com/dotnet-architecture/eShopOnWeb.git
+  11 trivy repository   --scanners vuln   https://github.com/dotnet-architecture/eShopOnWeb.git
+  12 trivy repository   --scanners secret   https://github.com/dotnet-architecture/eShopOnWeb.git
+  13 trivy repository   --scanners secret,misconfig   https://github.com/dotnet-architecture/eShopOnWeb.git
+  14 trivy repository   --scanners secret,misconfig,vuln   https://github.com/dotnet-architecture/eShopOnWeb.git
+  15 history
+  16 trivy fs    --scanners secret,misconfig,vuln .\sample-dotnetweb-app\
+
+```
