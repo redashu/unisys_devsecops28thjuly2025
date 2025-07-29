@@ -294,3 +294,13 @@ git clone https://github.com/redashu/ashu-iis-container-app.git
 ### bit more info about sonarqube + scanner 
 
 <img src="sonar2.png">
+
+### sonar-scanner to sonarqube-server 
+
+<img src="sonar3.png">
+
+### code scan with sonar-scanner 
+
+```
+ sonar-scanner.bat -D"sonar.projectKey=ashu-iis-project1" -D"sonar.sources=." -D"sonar.host.url=http://13.203.151.240:9000" -D"sonar.token=34546"
+```
