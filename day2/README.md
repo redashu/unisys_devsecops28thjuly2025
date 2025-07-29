@@ -235,3 +235,18 @@ PS C:\Users\Administrator\Desktop>
   16 trivy fs    --scanners secret,misconfig,vuln .\sample-dotnetweb-app\
 
 ```
+
+
+### more commands 
+
+```
+21 trivy repository   --scanners secret,misconfig,vuln --severity HIGH,CRITICAL  https://github.com/dotnet-architecture/eShopOnWeb.git  --format json
+  22 trivy repository   --scanners secret,misconfig,vuln --severity HIGH,CRITICAL  https://github.com/dotnet-architecture/eShopOnWeb.git  --format json   ...
+  23 ls
+
+
+PS C:\Users\Administrator\Desktop>
+PS C:\Users\Administrator\Desktop>
+PS C:\Users\Administrator\Desktop> trivy repository   --scanners secret,misconfig,vuln --severity HIGH,CRITICAL  https://github.com/dotnet-architecture/eShopOnWeb.git  --format json   --output  ashu_app_report.json
+
+```
