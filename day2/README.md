@@ -150,3 +150,73 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
    4 ls
    5 trivy  fs  .\sample-dotnetweb-app\
 ```
+
+## Github repo trivy scan 
+
+```
+PS C:\Users\Administrator\Desktop> trivy repository  https://github.com/dotnet-architecture/eShopOnWeb.git
+2025-07-29T06:35:32Z    INFO    [vuln] Vulnerability scanning is enabled
+2025-07-29T06:35:32Z    INFO    [secret] Secret scanning is enabled
+2025-07-29T06:35:32Z    INFO    [secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+2025-07-29T06:35:32Z    INFO    [secret] Please see also https://trivy.dev/v0.64/docs/scanner/secret#recommendation for faster secret detection
+Enumerating objects: 2373, done.
+Counting objects:   0% (1/2373)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Counting objects: 100% (2373/2373), done.
+Compressing objects: 100% (1545/1545), done.
+Total 2373 (delta 1159), reused 1581 (delta 711), pack-reused 0 (from 0)
+2025-07-29T06:35:39Z    INFO    Number of language-specific files       num=1
+2025-07-29T06:35:39Z    INFO    [packages-props] Detecting vulnerabilities...
+
+Report Summary
+
+┌──────────────────────────┬────────────────┬─────────────────┬─────────┐
+│          Target          │      Type      │ Vulnerabilities │ Secrets │
+├──────────────────────────┼────────────────┼─────────────────┼─────────┤
+│ Directory.Packages.props │ packages-props │        4        │    -    │
+└──────────────────────────┴────────────────┴─────────────────┴─────────┘
+Legend:
+- '-': Not scanned
+- '0': Clean (no security findings detected)
+
+
+Directory.Packages.props (packages-props)
+=========================================
+Total: 4 (UNKNOWN: 0, LOW: 0, MEDIUM: 2, HIGH: 2, CRITICAL: 0)
+
+┌──────────────────┬────────────────┬──────────┬────────┬───────────────────┬───────────────┬────────────────────────────────────────────────────────┐
+│     Library      │ Vulnerability  │ Severity │ Status │ Installed Version │ Fixed Version │                         Title                          │
+├──────────────────┼────────────────┼──────────┼────────┼───────────────────┼───────────────┼────────────────────────────────────────────────────────┤
+│ Azure.Identity   │ CVE-2024-29992 │ MEDIUM   │ fixed  │ 1.10.4            │ 1.11.0        │ Azure Identity Library for .NET Information Disclosure │
+│                  │                │          │        │                   │               │ Vulnerability                                          │
+│                  │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2024-29992             │
+│                  ├────────────────┤          │        │                   ├───────────────┼────────────────────────────────────────────────────────┤
+│                  │ CVE-2024-35255 │          │        │                   │ 1.11.4        │ azure-identity: Azure Identity Libraries Elevation of  │
+│                  │                │          │        │                   │               │ Privilege Vulnerability in                             │
+│                  │                │          │        │                   │               │ github.com/Azure/azure-sdk-for-go/sdk/azidentity       │
+│                  │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2024-35255             │
+├──────────────────┼────────────────┼──────────┤        ├───────────────────┼───────────────┼────────────────────────────────────────────────────────┤
+│ System.Text.Json │ CVE-2024-30105 │ HIGH     │        │ 8.0.3             │ 8.0.4         │ dotnet: DoS in System.Text.Json                        │
+│                  │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2024-30105             │
+│                  ├────────────────┤          │        │                   ├───────────────┼────────────────────────────────────────────────────────┤
+│                  │ CVE-2024-43485 │          │        │                   │ 8.0.5, 6.0.10 │ dotnet: Denial of Service in System.Text.Json          │
+│                  │                │          │        │                   │               │ https://avd.aquasec.com/nvd/cve-2024-43485             │
+└──────────────────┴────────────────┴──────────┴────────┴───────────────────┴───────────────┴────────────────────────────────────────────────────────┘
+PS C:\Users\Administrator\Desktop>
+
+```
