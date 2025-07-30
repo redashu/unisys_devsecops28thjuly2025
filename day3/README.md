@@ -61,3 +61,8 @@ Java HotSpot(TM) 64-Bit Server VM (build 21.0.8+12-LTS-250, mixed mode, sharing)
 PS C:\Users\Administrator>
 
 ```
+
+## pluging to install for sonarqube integration in jenkins 
+
+<img src="plg1.png">
+
