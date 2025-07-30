@@ -119,3 +119,46 @@ sonar-scanner \
 ### jenkins docker plugin integration 
 
 <img src="c113.png">
+
+### container image pushing to docker hub 
+
+<img src="push.png">
+
+### windows CLI to push image 
+
+```
+PS C:\Users\Administrator\Desktop\sample-web-project> docker  images
+REPOSITORY                                 TAG                          IMAGE ID       CREATED          SIZE
+ashuwebapp-iis-ltsc2022                    codev1                       f7d4990f0283   58 minutes ago   5.31GB
+demo-iss                                   v2                           f007f5ab84c9   8 hours ago      5.32GB
+<none>                                     <none>                       b91edd248f7f   8 hours ago      5.32GB
+dockerashu/ashusec                         version12                    80aaa54d43b5   8 hours ago      5.31GB
+demo-iss                                   v1                           80aaa54d43b5   8 hours ago      5.31GB
+demo-iis                                   latest                       c1effb468168   2 days ago       5.31GB
+mcr.microsoft.com/windows/servercore/iis   windowsservercore-ltsc2022   f6240db7edca   2 weeks ago      5.31GB
+hello-world                                latest                       4d9ea60132a7   2 weeks ago      297MB
+mcr.microsoft.com/windows/servercore       ltsc2022                     b55ae001c969   3 weeks ago      5.2GB
+mcr.microsoft.com/windows/nanoserver       ltsc2022                     6f9ae1c9bb59   3 weeks ago      297MB
+PS C:\Users\Administrator\Desktop\sample-web-project> 
+PS C:\Users\Administrator\Desktop\sample-web-project> 
+PS C:\Users\Administrator\Desktop\sample-web-project> docker  tag    hello-world:latest   docker.io/dockerashu/hello-world:ashuimgv1 
+PS C:\Users\Administrator\Desktop\sample-web-project> docker  login -u dockerashu
+
+i Info → A Personal Access Token (PAT) can be used instead.
+         To create a PAT, visit https://app.docker.com/settings
+
+
+Password: 
+
+WARNING! Your credentials are stored unencrypted in 'C:\Users\Administrator\.docker\config.json'.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/go/credential-store/
+
+Login Succeeded
+PS C:\Users\Administrator\Desktop\sample-web-project> docker push  docker.io/dockerashu/hello-world:ashuimgv1
+The push refers to repository [docker.io/dockerashu/hello-world]
+f006fbde3288: Mounted from library/hello-world
+4e07a0a38d10: Mounted from library/hello-world
+f7a64c5802ee: Mounted from library/hello-world
+
+```
