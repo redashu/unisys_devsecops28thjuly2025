@@ -99,3 +99,11 @@ pipeline {
 
 <img src="cl11.png">
 
+
+```
+sonar-scanner \
+  -Dsonar.projectKey=ashu-day3 \
+  -Dsonar.sources=. \
+  -Dsonar.host.url=http://13.203.151.240:9000 \
+  -Dsonar.token=sqp_e6efeb3a4f3b6f737ce084ad2c200fa297d54850
+```

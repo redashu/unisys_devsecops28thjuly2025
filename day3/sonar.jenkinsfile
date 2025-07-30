@@ -5,6 +5,7 @@ pipeline {
         SONAR_HOME = 'C:\\Users\\Administrator\\Documents\\tools\\sonar-scanner\\bin'
         REPO_NAME  = 'https://github.com/redashu/sample-web-project.git'
         BRANCH_NAME = 'master'
+        SONAR_TOKEN  = credentials('ashu-sonar-project3-token')
     }
 
     stages {
@@ -19,6 +20,8 @@ pipeline {
                 docker version 
                 echo ==> java version ==>
                 java --version 
+                echo == checking git version ==
+                git version
                 """
             }
         }
@@ -27,6 +30,19 @@ pipeline {
             steps {
                 echo 'clone repo to project'
                 git url: "${REPO_NAME}", branch: "${BRANCH_NAME}"
+            }
+        }
+        // doing sast with sonar-qube 
+        stage('SAST with sonar-scanner'){
+            steps {
+                echo 'wait for sonar-scanner to finish'
+                bat """
+                 %SONAR_HOME%\\sonar-scanner \
+                -Dsonar.projectKey=ashu-day3 \
+                -Dsonar.sources=. \
+                -Dsonar.host.url=http://13.203.151.240:9000 \
+                -Dsonar.token=${SONAR_TOKEN}
+                """
             }
         }
      
