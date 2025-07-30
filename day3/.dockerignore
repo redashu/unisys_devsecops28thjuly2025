@@ -1,0 +1,6 @@
+Dockerfile
+jenkinsfile
+.dockerignore
+LICENSE
+README.md
+.git* 

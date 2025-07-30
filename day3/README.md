@@ -107,3 +107,15 @@ sonar-scanner \
   -Dsonar.host.url=http://13.203.151.240:9000 \
   -Dsonar.token=sqp_e6efeb3a4f3b6f737ce084ad2c200fa297d54850
 ```
+
+### after SAST building app into container images then deploy it 
+
+<img src="c111.png">
+
+### container image build process understanding 
+
+<img src="c112.png">
+
+### jenkins docker plugin integration 
+
+<img src="c113.png">
