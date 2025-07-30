@@ -66,3 +66,31 @@ PS C:\Users\Administrator>
 
 <img src="plg1.png">
 
+### jenkinsfine -- sample 
+
+```
+pipeline {
+    agent any
+
+    stages {
+        // stage1
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+     // stage to verify sonar-scanner 
+     stage('sonar-scaner verify'){
+         steps {
+             echo 'checking version'
+             // bat or pwsh
+             bat """
+             sonar-scanner --version
+             """
+           
+         }
+     }
+    }
+}
+
+```
