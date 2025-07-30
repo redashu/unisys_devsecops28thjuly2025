@@ -6,6 +6,7 @@ pipeline {
         REPO_NAME  = 'https://github.com/redashu/sample-web-project.git'
         BRANCH_NAME = 'master'
         SONAR_TOKEN  = credentials('ashu-sonar-project3-token')
+        DOCKER_CREDS = 'ashutoshh-dockerhub'
         SONAR_PROJECT_KEY =  'ashu-day3'
         SONAR_SERVER_NAME = 'ashu-sonarqube' // name we have configured under jenkins global confir
     }
@@ -61,7 +62,7 @@ pipeline {
                 echo 'starting docker build process'
                 // to use docker plugin using script 
                 script {
-                    def imageName  = "ashuwebapp-iis-ltsc2022"
+                    def imageName  = "docker.io/dockerashu/ashuwebapp-iis-ltsc2022"
                     def imageTag   = "codev1"
                     docker.build("${imageName}:${imageTag}",".")
 
@@ -71,6 +72,24 @@ pipeline {
             }
                 
             
+        }
+        // pushing image  to dockerhub 
+        stage('Docker hub image push'){
+            steps{
+                echo 'pushing image to docker hub'
+                script {
+                    def imageName  = "dockerashu/ashuwebapp-iis-ltsc2022"
+                    def imageTag   = "codev1"
+                    def hubCred   = "${DOCKER_CREDS}"
+                    // calling jenkins pluing docker pipeline to push
+                    docker.withRegistry('https://registry.hub.docker.com',hubCred){
+                        docker.image(imageName + ":" + imageTag).push()
+                        // 
+
+                    }
+
+                }
+            }
         }
      
     }
