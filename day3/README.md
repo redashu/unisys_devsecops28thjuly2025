@@ -94,3 +94,8 @@ pipeline {
 }
 
 ```
+
+### forking repo and cloning concept 
+
+<img src="cl11.png">
+

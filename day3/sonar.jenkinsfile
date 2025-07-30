@@ -1,26 +1,34 @@
 pipeline {
-    agent any
+    agent any // selection of agents 
+    // defining environment variables 
     environment {
         SONAR_HOME = 'C:\\Users\\Administrator\\Documents\\tools\\sonar-scanner\\bin'
+        REPO_NAME  = 'https://github.com/redashu/sample-web-project.git'
+        BRANCH_NAME = 'master'
     }
 
     stages {
         // stage1
-        stage('Hello') {
+        stage('testing and verify of required  commands') {
             steps {
                 echo 'Hello World'
+                 // bat or pwsh
+                bat """
+                %SONAR_HOME%\\sonar-scanner --version
+                echo == checking docker ===>
+                docker version 
+                echo ==> java version ==>
+                java --version 
+                """
             }
         }
-     // stage to verify sonar-scanner 
-     stage('sonar-scaner verify'){
-         steps {
-             echo 'checking version'
-             // bat or pwsh
-             bat """
-             %SONAR_HOME%\\sonar-scanner --version
-             """
-           
-         }
-     }
+        // git checkout 
+        stage('taking code of github repo'){
+            steps {
+                echo 'clone repo to project'
+                git url: "${REPO_NAME}", branch: "${BRANCH_NAME}"
+            }
+        }
+     
     }
 }
