@@ -1,0 +1,62 @@
+pipeline {
+    agent any // selection of agents 
+    // defining environment variables 
+    environment {
+        SONAR_HOME = 'C:\\Users\\Administrator\\Documents\\tools\\sonar-scanner\\bin'
+        REPO_NAME  = 'https://github.com/redashu/sample-web-project.git'
+        BRANCH_NAME = 'master'
+        SONAR_TOKEN  = credentials('ashu-sonar-project3-token')
+        SONAR_PROJECT_KEY =  'ashu-day3'
+        SONAR_SERVER_NAME = 'ashu-sonarqube' // name we have configured under jenkins global confir
+    }
+
+    stages {
+        // stage1
+        stage('testing and verify of required  commands') {
+            steps {
+                echo 'Hello World'
+                 // bat or pwsh
+                bat """
+                %SONAR_HOME%\\sonar-scanner --version
+                echo == checking docker ===>
+                docker version 
+                echo ==> java version ==>
+                java --version 
+                echo == checking git version ==
+                git version
+                """
+            }
+        }
+        // git checkout 
+        stage('taking code of github repo'){
+            steps {
+                echo 'clone repo to project'
+                git url: "${REPO_NAME}", branch: "${BRANCH_NAME}"
+            }
+        }
+        // doing sast with sonar-qube 
+        stage('SAST with sonar-scanner'){
+            steps {
+                 echo 'wait for sonar-scanner to finish'
+                 // calling plugin
+                 script {
+                    withSonarQubeEnv("${SONAR_SERVER_NAME}") {
+                
+                    bat """
+                    %SONAR_HOME%\\sonar-scanner \
+                    -Dsonar.projectKey=${SONAR_PROJECT_KEY} \
+                    -Dsonar.sources=. \
+                    -Dsonar.host.url=${SONAR_HOST_URL} \ // jenkins internal env variable
+                    -Dsonar.token=${SONAR_TOKEN}
+                    """
+
+                    }
+                }
+            }
+            // using plugins to call sonarENV
+            
+            
+        }
+     
+    }
+}
