@@ -81,7 +81,7 @@ pipeline {
             steps {
                 echo "doing scan"
                 bat """
-                trivy image --severity HIGH,CRITICAL --format table -o ${TRIVY_REPORT} ${IAMGE_NAME}:${IMAGE_TAG}
+                trivy image --severity HIGH,CRITICAL --format table -o ${TRIVY_REPORT} ${IMAGE_NAME}:${IMAGE_TAG}
                 """
             }
         }
