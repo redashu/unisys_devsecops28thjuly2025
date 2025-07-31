@@ -1,0 +1,17 @@
+stage('trivy scan'){
+    steps {
+        echo 'running scan'
+        bat """
+        trivy image  --severity HIGH,CRITICAL --format table -o report.txt image:tag
+        findstr /I "HIGH CRITICAL"  report.txt  >null
+
+        if %errorlevel% == 0 (
+        echo [ERROR] HIGH or ciritical found 
+        exit /b 1
+        )  
+        else (
+        echo no error found 
+        )
+        """
+    }
+}
