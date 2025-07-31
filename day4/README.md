@@ -50,3 +50,33 @@
    17  docker  run  -it --rm     ghcr.io/zaproxy/zaproxy  zap-full-scan.py    -t    http://172.31.44.127
 
    ```
+
+### checking linux commands to add as a jenkins slave 
+
+```
+S C:\Program Files\ZAP\Zed Attack Proxy> ssh   ashu@13.203.151.240
+ashu@13.203.151.240's password:
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+[ashu@ip-172-31-38-15 ~]$ java --version
+openjdk 21.0.8 2025-07-15 LTS
+OpenJDK Runtime Environment Corretto-21.0.8.9.1 (build 21.0.8+9-LTS)
+OpenJDK 64-Bit Server VM Corretto-21.0.8.9.1 (build 21.0.8+9-LTS, mixed mode, sharing)
+[ashu@ip-172-31-38-15 ~]$ docker  version
+Client:
+ Version:           25.0.8
+ API version:       1.44
+ Go version:        go1.24.4
+ Git commit:        0bab007
+ Built:             Wed Jun 18 00:00:00 2025
+ OS/Arch:           linux/amd64
+
+```
