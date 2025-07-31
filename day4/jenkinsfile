@@ -81,7 +81,7 @@ pipeline {
             steps {
                 echo "doing scan"
                 bat """
-                trivy image --severity HIGH,CRITICAL --format table -o ${TRIVY_REPORT} ${IMAGE_NAME}:${IMAGE_TAG}
+                trivy image --severity HIGH,CRITICAL --format table  --report summary -o ${TRIVY_REPORT} ${IMAGE_NAME}:${IMAGE_TAG} --skip-version-check
                 """
             }
         }
@@ -110,7 +110,7 @@ pipeline {
                 bat """
                 echo trying to remove container with same name 
                 docker rm ashuappc1 -f  >null 2>&1 || echo COntainer found found 
-                docker  run -itd --name ashuappc1 -p 1234:80  ${IAMGE_NAME}:${IMAGE_TAG}
+                docker  run -itd --name ashuappc1 -p 1234:80  ${IMAGE_NAME}:${IMAGE_TAG}
                 docker  ps | findstr ashuappc1 
                 """
             }
