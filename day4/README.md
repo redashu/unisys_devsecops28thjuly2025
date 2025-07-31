@@ -33,3 +33,8 @@
   20 docker save -o iis.tar  334a5bb7eec8
 
 ```
+
+### DAST understanding 
+
+<img src="dast1.png">
+
