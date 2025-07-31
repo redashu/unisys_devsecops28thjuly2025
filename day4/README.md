@@ -38,3 +38,15 @@
 
 <img src="dast1.png">
 
+### using Dast tools you can try to scan you windows IIS app as external user 
+
+```
+ 11  docker pull dockerashu/ashuwebapp-iis-ltsc2022:codev1
+   12  docker pull ghcr.io/sullo/nikto:latest
+   13  docker pull   ghcr.io/zaproxy/zaproxy:stable
+   14  docker  images
+   15  docker  run  -it --rm     ghcr.io/sullo/nikto       -h    http://172.31.44.127
+   16  docker  run  -it --rm     ghcr.io/zaproxy/zaproxy  zap-baseline.py     -t    http://172.31.44.127
+   17  docker  run  -it --rm     ghcr.io/zaproxy/zaproxy  zap-full-scan.py    -t    http://172.31.44.127
+
+   ```
