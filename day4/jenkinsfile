@@ -1,0 +1,121 @@
+pipeline {
+    agent any // selection of agents 
+    // defining environment variables 
+    environment {
+        SONAR_HOME = 'C:\\Users\\Administrator\\Documents\\tools\\sonar-scanner\\bin'
+        REPO_NAME  = 'https://github.com/redashu/sample-web-project.git'
+        BRANCH_NAME = 'master'
+        SONAR_TOKEN  = credentials('ashu-sonar-project3-token')
+        DOCKER_CREDS = 'ashutoshh-dockerhub'
+        SONAR_PROJECT_KEY =  'ashu-day3'
+        SONAR_SERVER_NAME = 'ashu-sonarqube' // name we have configured under jenkins global confir
+        IMAGE_NAME  = "dockerashu/ashuwebapp-iis-ltsc2022"
+        IMAGE_TAG =  "codev1"
+        TRIVY_REPORT = "trivy-ashu-report.txt"
+    }
+
+    stages {
+        // stage1
+        stage('testing and verify of required  commands') {
+            steps {
+                echo 'Hello World'
+                 // bat or pwsh
+                bat """
+                %SONAR_HOME%\\sonar-scanner --version
+                echo == checking docker ===>
+                docker version 
+                echo ==> java version ==>
+                java --version 
+                echo == checking git version ==
+                git version
+                """
+            }
+        }
+        // git checkout 
+        stage('taking code of github repo'){
+            steps {
+                echo 'clone repo to project'
+                git url: "${REPO_NAME}", branch: "${BRANCH_NAME}"
+            }
+        }
+        // doing sast with sonar-qube 
+        stage('SAST with sonar-scanner'){
+            steps {
+                 echo 'wait for sonar-scanner to finish'
+                 // calling plugin
+                 script {
+                    withSonarQubeEnv("${SONAR_SERVER_NAME}") {
+                
+                    bat """
+                    %SONAR_HOME%\\sonar-scanner \
+                    -Dsonar.projectKey=${SONAR_PROJECT_KEY} \
+                    -Dsonar.sources=. \
+                    -Dsonar.host.url=${SONAR_HOST_URL} \
+                    -Dsonar.token=${SONAR_TOKEN}
+                    """
+
+                    }
+                }
+            }
+            
+        }
+         // using docker plugin to build container image 
+        stage('building docker image'){
+            steps {
+                echo 'starting docker build process'
+                // to use docker plugin using script 
+                script {
+                    // def imageName  = "dockerashu/ashuwebapp-iis-ltsc2022"
+                    // def imageTag   = "codev1"
+                    docker.build("${IMAGE_NAME}:${IMAGE_TAG}",".")
+
+                }
+                // verify image build 
+                bat 'docker images   | findstr ashuwebapp'
+            }
+                
+            
+        }
+        // add stage to scan using trivy is no HIgh , critical vuln then proceed else stpo pipeline
+        stage('post build security check using trivy'){
+            steps {
+                echo "doing scan"
+                bat """
+                trivy image --severity HIGH,CRITICAL --format table -o ${TRIVY_REPORT} ${IAMGE_NAME}:${IMAGE_TAG}
+                """
+            }
+        }
+        // pushing image  to dockerhub 
+        stage('Docker hub image push'){
+            steps{
+                echo 'pushing image to docker hub'
+                script {
+                    // def imageName  = ""
+                    // def imageTag   = "codev1"
+                    def hubCred   = "${DOCKER_CREDS}"
+                    // calling jenkins pluing docker pipeline to push
+                    docker.withRegistry('https://registry.hub.docker.com',hubCred){
+                        docker.image("${IMAGE_NAME}" + ":" + "${IMAGE_TAG}").push()
+                        // 
+
+                    }
+
+                }
+            }
+        }
+        // deploy app as container using IIS docker image 
+        stage('deploy app using container image'){
+            steps {
+                echo 'deploying app using container'
+                bat """
+                echo trying to remove container with same name 
+                docker rm ashuappc1 -f  >null 2>&1 || echo COntainer found found 
+                docker  run -itd --name ashuappc1 -p 1234:80  ${IAMGE_NAME}:${IMAGE_TAG}
+                docker  ps | findstr ashuappc1 
+                """
+            }
+        }
+        // Implment DAST 
+     
+    }
+}
