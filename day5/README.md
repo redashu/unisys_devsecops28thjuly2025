@@ -28,3 +28,10 @@
 
 <img src="sec3.png">
 
+### ansible understanding 
+
+<img src="sec4.png">
+
+### ansible architecture understanding 
+
+<img src="sec5.png">
