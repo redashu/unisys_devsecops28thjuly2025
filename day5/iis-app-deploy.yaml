@@ -1,0 +1,36 @@
+---
+- name: Deploy Static IIS Website
+  hosts: windows
+  gather_facts: no
+  tasks:
+
+    - name: Ensure destination folder exists on target
+      win_file: # win_file to create a directory
+        path: C:\inetpub\wwwroot\DesktopStaticAshu
+        state: directory
+
+    - name: Copy index.html from Ansible host to Windows target
+      copy:
+        src: /home/ashu/ansible/index.html        # <-- path on Ansible control host
+        dest: C:\inetpub\wwwroot\DesktopStaticAshu\index.html
+
+    - name: Remove existing IIS site if present
+      win_iis_website:
+        name: DesktopStaticAshu8082
+        state: absent
+
+    - name: Create new IIS website
+      win_iis_website:
+        name: DesktopStaticAshu8082
+        state: started
+        port: 8082
+        physical_path: C:\inetpub\wwwroot\DesktopStaticAshu
+
+    - name: Open firewall port 8082 for HTTP
+      win_firewall_rule:
+        name: "IIS HTTP 8082"
+        localport: 8082
+        action: allow
+        direction: in
+        protocol: tcp
+        state: present

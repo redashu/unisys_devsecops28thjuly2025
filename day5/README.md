@@ -101,3 +101,20 @@ winrm enumerate winrm/config/listener
    86  ansible   windows  -m win_command -a  "whoami"
    87  ansible   windows  -m win_command -a  "systeminfo"
 ```
+
+### Deploy static webapp in IIS 
+
+```
+[ashu@ip-172-31-38-15 ansible]$ pwd
+/home/ashu/ansible
+[ashu@ip-172-31-38-15 ansible]$ ls
+ansible.cfg  iis-deploy.yaml  index.html  inventory
+[ashu@ip-172-31-38-15 ansible]$ 
+[ashu@ip-172-31-38-15 ansible]$ 
+
+echo  "Hello Guys welcome to IIS webapp Using Ansible " >index.html 
+
+cp /tmp/iis-deploy.yaml  . 
+ansible-playbook  iis-deploy.yaml
+
+```
