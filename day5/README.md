@@ -79,3 +79,15 @@ ansible.cfg  inventory
  cp /tmp/ansible.cfg  ansible.cfg 
  cp /tmp/inventory   inventory 
 ```
+
+## enable windows authentication enable for winrm 
+
+```
+winrm quickconfig -transport:http
+Set-NetFirewallRule -Name "WINRM-HTTP-In-TCP" -Enabled True
+winrm set winrm/config/service/auth '@{Basic="true"}'
+winrm quickconfig -force
+winrm set winrm/config/service @{AllowUnencrypted="true"}
+Restart-Service winrm
+winrm enumerate winrm/config/listener
+```
