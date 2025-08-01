@@ -137,3 +137,8 @@ ansible-playbook  iis-deploy.yaml
    25  ansible-doc     win_updates
 
 ```
+
+## Project implementations stages
+
+<img src="stage1.png">
+
