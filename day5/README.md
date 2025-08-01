@@ -91,3 +91,13 @@ winrm set winrm/config/service @{AllowUnencrypted="true"}
 Restart-Service winrm
 winrm enumerate winrm/config/listener
 ```
+
+### change inventory ip to your own windows ip then run below ansible commands
+
+```
+83  nano   inventory 
+   84  cat inventory 
+   85  ansible   windows  -m win_ping 
+   86  ansible   windows  -m win_command -a  "whoami"
+   87  ansible   windows  -m win_command -a  "systeminfo"
+```
