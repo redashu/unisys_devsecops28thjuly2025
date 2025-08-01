@@ -118,3 +118,22 @@ cp /tmp/iis-deploy.yaml  .
 ansible-playbook  iis-deploy.yaml
 
 ```
+
+### some security related tasks to updates windows server hardening 
+
+```
+13  ansible-doc  -l   | grep win_iis_website
+   14  ansible-doc  -l   | grep win_updates
+   15  ansible-doc  -l   | grep win_reg
+   16  ansible-doc  -l   | grep win_iis
+   17  ansible-doc  -l   | grep win_fe
+   18  ansible-doc  -l   | grep win_acl
+   19  ls
+   20  cat iis-deploy.yaml 
+   21  ansible-doc  -l   | grep win_acl
+   22  ansible-doc  -l    win_acl
+   23  ansible-doc     win_acl
+   24  history 
+   25  ansible-doc     win_updates
+
+```

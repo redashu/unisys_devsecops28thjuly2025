@@ -1,0 +1,24 @@
+# cis benchmarking standard
+#1.  Ensure windows security updates
+- use win_updates module to update security updates from windows
+
+2.  Hardening IIS 
+- Disable SSLv3 and better to use TLS 1.2 
+win_regedit 
+
+3.  Set secure IIS header 
+win_iis_webbinding or research 
+
+
+4. there are unused IIS modules like ftp , compress , xlogs 
+-->
+win_feature
+
+5. ENSURE NTFS permission are restricted to IIS app locaiton 
+-->
+win_acl 
+
+6. windows defender enabled
+
+7. auto config in updates 
+
