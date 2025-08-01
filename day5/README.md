@@ -76,5 +76,6 @@ ansible.cfg  inventory
 [ashu@ip-172-31-38-15 ansible]$ 
 
 
-
+ cp /tmp/ansible.cfg  ansible.cfg 
+ cp /tmp/inventory   inventory 
 ```
