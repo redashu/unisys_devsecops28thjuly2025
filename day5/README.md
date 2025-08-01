@@ -35,3 +35,46 @@
 ### ansible architecture understanding 
 
 <img src="sec5.png">
+
+### verification of ansible host 
+
+```
+### checking python version 
+
+[ashu@ip-172-31-38-15 ~]$ python3 -V
+Python 3.9.23
+[ashu@ip-172-31-38-15 ~]$ 
+
+
+### checking ansible version 
+
+[ashu@ip-172-31-38-15 ~]$ ansible --version 
+ansible [core 2.15.3]
+  config file = None
+  configured module search path = ['/home/ashu/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.9/site-packages/ansible
+  ansible collection location = /home/ashu/.ansible/collections:/usr/share/ansible/collections
+  executable location = /usr/bin/ansible
+  python version = 3.9.23 (main, Jun 27 2025, 00:00:00) [GCC 11.5.0 20240719 (Red Hat 11.5.0-5)] (/usr/bin/python3.9)
+  jinja version = 3.1.4
+  libyaml = True
+
+```
+
+### creating some directory structure to use ansible 
+
+```
+[ashu@ip-172-31-38-15 ~]$ mkdir  ansible 
+[ashu@ip-172-31-38-15 ~]$ ls
+ansible  ashu-reports  caches  remoting  remoting.jar  workspace
+[ashu@ip-172-31-38-15 ~]$ cd  ansible/
+[ashu@ip-172-31-38-15 ansible]$ ls
+[ashu@ip-172-31-38-15 ansible]$ 
+[ashu@ip-172-31-38-15 ansible]$ touch   ansible.cfg   inventory 
+[ashu@ip-172-31-38-15 ansible]$ ls
+ansible.cfg  inventory
+[ashu@ip-172-31-38-15 ansible]$ 
+
+
+
+```
