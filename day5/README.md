@@ -19,3 +19,12 @@
   119  ls
   120  sudo cp -v ashu-port.html  /var/www/html/
 ```
+
+### SEc benchmarks like CIS / NIST 
+
+<img src="sec2.png">
+
+### ansible for patch / fixing management 
+
+<img src="sec3.png">
+
